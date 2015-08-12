@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Tasks SYSTEM "Tasks-5.1.dtd">
+<!-- eric6 tasks file for project BaiduImageDownloader -->
+<!-- Saved: 2015-08-12, 15:06:26 -->
+<Tasks version="5.1">
+  <ProjectScanFilter></ProjectScanFilter>
+  <Task priority="1" completed="False" type="1">
+    <Summary>TODO: not implemented yet</Summary>
+    <Description></Description>
+    <Created>2015-08-12, 15:04:49</Created>
+    <Resource>
+      <Filename>main.py</Filename>
+      <Linenumber>53</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1">
+    <Summary>TODO: not implemented yet</Summary>
+    <Description></Description>
+    <Created>2015-08-12, 15:04:49</Created>
+    <Resource>
+      <Filename>main.py</Filename>
+      <Linenumber>62</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1">
+    <Summary>TODO: not implemented yet</Summary>
+    <Description></Description>
+    <Created>2015-08-12, 15:04:49</Created>
+    <Resource>
+      <Filename>main.py</Filename>
+      <Linenumber>79</Linenumber>
+    </Resource>
+  </Task>
+</Tasks>
