@@ -29,7 +29,7 @@ class ImageDownloadThread(QThread):
         while (True):
             global bad
             img_url = self.my_queue.get()
-            socket.setdefaulttimeout(2)#这里对整个socket层设置超时时间。后续连接中如果再使用到socket，不必再设置  
+            socket.setdefaulttimeout(5)#这里对整个socket层设置超时时间。后续连接中如果再使用到socket，不必再设置  
             try:
                 urllib.request.urlretrieve(img_url, self.dir + '/' + img_url.split('/')[-1])
             except Exception as e:
@@ -83,8 +83,8 @@ class DownloadEngine(QThread):
         for i in range(0, len(hjson['data'])-1):#最后一个数据为空
             img_url = self.DecodeURL(hjson['data'][i]['objURL'])
             if img_url not in st:
-                st.add(img_url)
-                self.progressBar_updated_signal.emit()
+                st.add(img_url)#去重
+                self.progressBar_updated_signal.emit()#更新进度条
             
     def GetImgUrlSet(self):
         img_url_set = set()
