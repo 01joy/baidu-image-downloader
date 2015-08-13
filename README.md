@@ -3,6 +3,33 @@
 
 使用python3 + pyqt5 + eric6 + cx_Freeze4完成，详细内容请看[我的博客](http://www.bitjoy.net/2015/08/13/baidu-image-downloader-python3-pyqt5-eric6-cx_freeze4/)
 
-目前已知bug有：
+#文件含义
+__pycache__：python缓存文件内容
+_eric6project：eric6项目文件内容
+build：cx_Freeze4打包内容
+dist：cx_Freeze4打包生成的可执行文件
+BaiduImageDownloader.e4p：eric6项目文件
+BaiduImageDownloader.png：界面截图
+DownloadEngine.py：python3多线程下载类
+Ui_main.py：qt5界面布局代码
+__init__.py：自动生成的文件，空
+main.py：项目主流程
+main.ui：qt gui界面文件
+setup.py：cx_Freeze4打包脚本
+
+重要文件是main.py和DownloadEngine.py
+
+#使用方法
+####程序猿：
+
+1. 下载该项目所有代码，在当前路径执行`python main.py`
+2. 下载该项目所有代码，导入eric6，选中main.py，按F2执行
+
+####人类：
+
+直接下载[BaiduImageDownloader-0.1-amd64.msi](https://github.com/Beeder/BaiduImageDownloader/blob/master/dist/BaiduImageDownloader-0.1-amd64.msi?raw=true)安装，在安装目录，点击main.exe运行。
+
+#已知bug有：
+
 1. 如果存储目录设置为某个根目录，图片写入失败，因为根目录是c:/的形式，会导致生成c://a.jpg这样的文件，但是写入失败，多了个斜杠/；如果是其他目录c:/img，则拼接为c:/img/a.jpg正确。
 2. 关键词为`校花`，图片尺寸为`特大`时，程序崩溃，[好像是JSON decode的某个问题](http://stackoverflow.com/questions/15198426/fixing-invalid-json-escape)。
