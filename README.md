@@ -4,6 +4,7 @@
 使用python3 + pyqt5 + eric6 + cx_Freeze4完成，详细内容请看[我的博客](http://www.bitjoy.net/2015/08/13/baidu-image-downloader-python3-pyqt5-eric6-cx_freeze4/)
 
 #文件含义
+
 |--\__pycache__：python缓存文件内容
 |
 |--\_eric6project：eric6项目文件内容
@@ -40,7 +41,7 @@
 
 ####人类：
 
-直接下载[BaiduImageDownloader-0.1-amd64.msi](https://github.com/Beeder/BaiduImageDownloader/blob/master/dist/BaiduImageDownloader-0.1-amd64.msi?raw=true)安装，在安装目录，点击main.exe运行。
+WIN7 64位用户直接下载[BaiduImageDownloader-0.1-amd64.msi](https://github.com/Beeder/BaiduImageDownloader/blob/master/dist/BaiduImageDownloader-0.1-amd64.msi?raw=true)安装，在安装目录，点击main.exe运行。
 
 #已知bug：
 
