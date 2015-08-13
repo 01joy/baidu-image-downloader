@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-5.1.dtd">
 <!-- eric6 tasks file for project BaiduImageDownloader -->
-<!-- Saved: 2015-08-13, 14:39:06 -->
+<!-- Saved: 2015-08-13, 18:17:08 -->
 <Tasks version="5.1">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1">
     <Summary>TODO: not implemented yet</Summary>
     <Description></Description>
-    <Created>2015-08-13, 10:28:33</Created>
+    <Created>2015-08-13, 17:57:30</Created>
     <Resource>
       <Filename>main.py</Filename>
       <Linenumber>53</Linenumber>
@@ -16,7 +16,7 @@
   <Task priority="1" completed="False" type="1">
     <Summary>TODO: not implemented yet</Summary>
     <Description></Description>
-    <Created>2015-08-13, 10:28:33</Created>
+    <Created>2015-08-13, 17:57:30</Created>
     <Resource>
       <Filename>main.py</Filename>
       <Linenumber>62</Linenumber>
@@ -25,7 +25,7 @@
   <Task priority="1" completed="False" type="1">
     <Summary>TODO: not implemented yet</Summary>
     <Description></Description>
-    <Created>2015-08-13, 10:28:33</Created>
+    <Created>2015-08-13, 17:57:30</Created>
     <Resource>
       <Filename>main.py</Filename>
       <Linenumber>79</Linenumber>

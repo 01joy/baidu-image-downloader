@@ -2,14 +2,9 @@
 import urllib.request
 import json
 import socket
-#from urllib.error import  HTTPError
-#import threading
 import queue
-#import http.client
 from PyQt5.QtCore import * 
 
-global dict_arr
-dict_arr = {'w': 'a', 'k': 'b', 'v': 'c', '1': 'd', 'j': 'e', 'u': 'f', '2': 'g', 'i': 'h', 't': 'i', '3': 'j', 'h': 'k', 's': 'l', '4': 'm', 'g': 'n', '5': 'o', 'r': 'p', 'q': 'q', '6': 'r', 'f': 's', 'p': 't', '7': 'u', 'e': 'v', 'o': 'w', '8': '1', 'd': '2', 'n': '3', '9': '4', 'c': '5', 'm': '6', '0': '7', 'b': '8', 'l': '9', 'a': '0', '_z2C$q': ':', '_z&e3B': '.', 'AzdH3F': '/' }
 global my_header
 my_header = {'User-Agent':'Mozilla/5.0'}  
 global bad
@@ -54,48 +49,28 @@ class DownloadEngine(QThread):
         self.dir = dir_in
         self.thread_num = thread_num_in
         
-    def DecodeURL(self, src):
-        dest = ''
-        i = 0
-        length = len(src)
-        while i < length:
-            if src[i] == '_' or src[i] == 'A':
-                if src[i:i+6] in dict_arr:
-                    dest += dict_arr[src[i:i+6]]
-                    i += 6
-                else:
-                    dest += src[i]
-                    i += 1
-            elif src[i] in dict_arr:
-                dest += dict_arr[src[i]]
-                i +=1
-            else:
-                dest += src[i]
-                i += 1
-        return dest
     
-    def ParseJSON(self, pn, rn, st):
-        url = 'http://image.baidu.com/i?tn=resultjson_com&ie=utf-8&word=%s&pn=%d&rn=%d&z=%d'%(self.word, pn, rn, self.size)
+    def ParseJSON(self, pn, rn, qe):
+        url = 'http://image.baidu.com/i?tn=resultjson&ie=utf-8&word=%s&pn=%d&rn=%d&z=%d'%(self.word, pn, rn, self.size)
         #print(url)
         request = urllib.request.Request(url = url,  headers = my_header)
         html = urllib.request.urlopen(request).read()
         hjson = json.loads(html.decode('gbk'))
         for i in range(0, len(hjson['data'])-1):#最后一个数据为空
-            img_url = self.DecodeURL(hjson['data'][i]['objURL'])
-            if img_url not in st:
-                st.add(img_url)#去重
-                self.progressBar_updated_signal.emit()#更新进度条
+            qe.put(hjson['data'][i]['objURL'])
+            self.progressBar_updated_signal.emit()#更新进度条
             
-    def GetImgUrlSet(self):
-        img_url_set = set()
+    def GetImgUrlQueue(self):
+        img_url_queue = queue.Queue(0)
         if self.num <= 60:
-            self.ParseJSON(0, self.num, img_url_set)
+            self.ParseJSON(0, self.num, img_url_queue)
         else:
-            i = 0
-            while len(img_url_set) < self.num:
-                self.ParseJSON(i, 60, img_url_set)
-                i += 1
-        return img_url_set
+            n = self.num / 60
+            n = int(n)
+            for i in range(n):
+                self.ParseJSON(i * 60, 60, img_url_queue)
+            self.ParseJSON(n * 60, self.num - n * 60, img_url_queue)
+        return img_url_queue
     
     def sub_update_progressBar(self):
         self.progressBar_updated_signal.emit()
@@ -104,14 +79,7 @@ class DownloadEngine(QThread):
         global bad
         bad = 0
         self.status_changed_signal.emit('获取URL')
-        img_url_queue = queue.Queue(0)
-        img_url_set = self.GetImgUrlSet()
-        n = 0
-        for i in img_url_set:
-            img_url_queue.put(i)
-            n += 1
-            if n == self.num:
-                break
+        img_url_queue = self.GetImgUrlQueue()
         threads = []
         self.status_changed_signal.emit('下载图片')
         #多线程爬去图片
