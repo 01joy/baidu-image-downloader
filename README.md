@@ -1,4 +1,4 @@
-#百度图片批量下载器
+#百度图片批量下载器UPDATE
 ![](https://raw.githubusercontent.com/Beeder/BaiduImageDownloader/master/BaiduImageDownloader.png)
 
 使用python3 + pyqt5 + eric6 + cx_Freeze4完成，详细内容请看[我的博客](http://www.bitjoy.net/2015/08/13/baidu-image-downloader-python3-pyqt5-eric6-cx_freeze4/)
