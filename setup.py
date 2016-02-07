@@ -11,7 +11,7 @@ if sys.platform == "win32":
     base = "Win32GUI"
 
 setup(  name = "BaiduImageDownloader",
-        version = "0.1",
+        version = "0.2",
         description = "Baidu Image Downloader!",
         options = {"build_exe": build_exe_options},
         executables = [Executable("main.py", base=base)])

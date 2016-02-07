@@ -77,7 +77,7 @@ class MainDialog(QDialog, Ui_Dialog):
         Slot documentation goes here.
         """
         # TODO: not implemented yet
-        webbrowser.open("https://github.com/Beeder/BaiduImageDownloader")
+        webbrowser.open("https://github.com/01joy/BaiduImageDownloader")
 
     def progressBar_updated_slot(self):
         self.count += 1

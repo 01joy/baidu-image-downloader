@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'F:\Qt\Py\BaiduImageDownloader\main.ui'
+# Form implementation generated from reading ui file 'C:\Users\czl\Documents\GitHub\BaiduImageDownloader\main.ui'
 #
 # Created by: PyQt5 UI code generator 5.5
 #
